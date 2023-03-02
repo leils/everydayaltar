@@ -6,10 +6,11 @@ uart = serial.Serial("/dev/serial0", baudrate=19200, timeout=3000)
 
 printer = ThermalPrinter(uart)
 
-printer.test_page()
+# printer.test_page()
 printer.feed(2)
 #printer.bold = True
-printer.inverse = True
+# printer.inverse = True
+printer.up_down_mode = True
 while(1):
     printer.print(input())
     printer.feed(2)
