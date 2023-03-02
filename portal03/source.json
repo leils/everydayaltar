@@ -1,0 +1,21 @@
+{
+	"questions": [ 
+		"something your ancestors give you.",
+		"something your community gives you.",
+		"something you give yourself.",
+		"something you give your ancestors.",
+		"something you give your community.",
+        "an ancestor.",
+		"a family member.",
+		"your community.",
+        "yourself.",
+        "a moment you remember that is important to you.",
+        "family."
+	],
+	"starters": [
+		"Tell me about ",
+		"Describe ",
+		"What is ",
+		"Write about "
+	]
+}
