@@ -8,8 +8,8 @@ printer = ThermalPrinter(uart)
 
 printer.test_page()
 printer.feed(2)
-printer.bold = True
-
+#printer.bold = True
+printer.inverse = True
 while(1):
     printer.print(input())
     printer.feed(2)
