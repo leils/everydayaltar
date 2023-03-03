@@ -15,6 +15,14 @@
         {
             "prompt": "What is an ancestor.",
             "response": "An ancestor is someone that has formed your living being. It's someone that you look back onto your lineage and see their fingerprints. It may have something to do with blood, or it may have nothing to do with blood. Ancestry is a way of being carried."
+        },
+        {
+            "prompt": "What's your drink of choice?",
+            "response": "My drink of choice is coffee. I've been drinking coffee since I was 12, for late-nighters doing homework. My drink of choices is also a tonic and bitters with lime, because I stopped drinking a while back and that's almost always available. I turn bright red when I drink, but that's really not the worst part; my immune system launches an all-out response and I fall back into my itchy, unhappy ways. "
+        },
+        {
+            "prompt": "Write about a family member.",
+            "response": "My mom came to the United States when she was 7. She didn't speak any English, but she learned quickly because she had to take care of her family."
         }
     ]
 }

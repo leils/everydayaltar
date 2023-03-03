@@ -2,10 +2,13 @@ import time, sys, random, json, textwrap
 import os
 import utils
 
-f = open('/home/pi/portal01/source.json')
+dirname = os.path.dirname(__file__)
+source_filename = os.path.join(dirname, 'source.json')
+datastore = os.path.join(dirname, "data.json")
+
+f = open(source_filename)
 raw_data = json.load(f)
 questions = raw_data['questions']
-starters = raw_data['starters']
 
 intro_message = """Take a breath. 
     When you're ready, press enter.
@@ -13,12 +16,7 @@ intro_message = """Take a breath.
 
 outro_message = """Thank you for sharing."""
 
-chosen_question = random.choice(questions)
-chosen_starter = random.choice(starters)
-
-prompt = chosen_starter + chosen_question
-
-
+prompt = random.choice(questions)
 
 #* ----Main Body of the Program--------------------------------------------------- */
 
@@ -40,7 +38,7 @@ while(1):
         "response": response
     }
 
-    utils.write_to_file(new_data)
+    utils.write_to_file(new_data, datastore)
     print("\n")
     utils.print_slow("Going to sleep. Hope to see you soon.")
 

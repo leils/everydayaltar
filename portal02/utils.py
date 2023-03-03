@@ -37,7 +37,7 @@ def generation_loop(responses):
     else: 
         print("Goodbye.")
 
-def write_to_file(new_data, filename='/home/pi/portal01/data.json', dataname="data"): 
+def write_to_file(new_data, filename, dataname="data"): 
     with open(filename,'r+') as file:
         # First we load existing data into a dict.
         file_data = json.load(file)

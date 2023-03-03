@@ -2,7 +2,10 @@ import time, sys, random, json, textwrap
 import os
 import utils
 
-f = open('source.json')
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'source.json')
+
+f = open(filename)
 raw_data = json.load(f)
 questions = raw_data['questions']
 starters = raw_data['starters']
