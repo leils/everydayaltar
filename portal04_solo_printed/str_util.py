@@ -1,6 +1,6 @@
 import textwrap
 
-def textWrapped(text, maxColumn):         #maxColumn can be fetched from Adafruit_Thermal.py (it is 32)
+def textWrapped(text, maxColumn=32):         #maxColumn can be fetched from Adafruit_Thermal.py (it is 32)
 	textWrapped = textwrap.wrap(text, width=maxColumn)
 	for i in range(len(textWrapped)):
 		textWrapped[i]+='\n'
