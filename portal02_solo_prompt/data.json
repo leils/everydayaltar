@@ -23,6 +23,18 @@
         {
             "prompt": "Write about a family member.",
             "response": "My mom came to the United States when she was 7. She didn't speak any English, but she learned quickly because she had to take care of her family."
+        },
+        {
+            "prompt": "What\u2019s a treasured posession of yourS?",
+            "response": "One of the things I own that I love is an oil lamp from Italy. I picked it up as one of the first souvenirs I've ever really gotten; from an artisan in a small town we were driving through. It's hand-thrown, the exact one that was lit in the window. "
+        },
+        {
+            "prompt": "Who do you call with bad news?",
+            "response": "I call my partner, Paul. I don't have a lot of people that I feel close oenough to call with news, but my partner is the person I feel closest to. Sometimes I might call my friends, but I think I'd only reach out to family if it was seserious or had some impact on them."
+        },
+        {
+            "prompt": "What do you eat when you need comfort?",
+            "response": "My comfort food is fried chicken and potato chips. growing up we had a KFC across the street, and after school some of us would walk through the park to go get some. My comfort foods have always been savory."
         }
     ]
 }
