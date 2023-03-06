@@ -49,8 +49,8 @@ while(1):
         "response": response
     }
 
-    printer.print(str_util.textWrapped(prompt))
     printer.print(str_util.textWrapped(response))
+    printer.print(str_util.textWrapped(prompt))
     printer.feed(2)
 
 
