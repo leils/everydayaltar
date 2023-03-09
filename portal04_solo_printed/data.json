@@ -35,6 +35,30 @@
         {
             "prompt": "What's a moment you remember that is important to you?",
             "response": "When I was very young, my grandmother taught me how to paint a bird. We had some language barrier, so she taught me through her motions. She had a little sheet of paper with the painting step by step, and led me through it, showing me first how to paint the body, then the wing, then the head, each a separate stroke. I still have that slip of paper. "
+        },
+        {
+            "prompt": "What do you eat when you\u2019re stressed?",
+            "response": "When I'm stressed, I eat potato chips. A lot of different ones, from honey dijon to sour cream and onion, but particuularly Pringles. Pringles sour cream and onion chips are excellent stress-eats, and can be found almost anywhere, and come in the most portable container you can find for last-minute pack-and-go rushing. "
+        },
+        {
+            "prompt": "Write about a family member.",
+            "response": "My dad is a funny man. He is incredibly smart, incredibly handy. I think he's fixed almost every part of the hous the car, the water heating system. He used to be a software engineer in security. He grew up in Taiwan, and came to the United States to get a college degree."
+        },
+        {
+            "prompt": "Write about a family member.",
+            "response": "My mom loves to garden. She's growing a bunch of her own food in the front yard, where they've removed all the grass for a drought-tolerant vegetable and herb garden. She's a whiz with plants, gcrowing tomatoes out of her ears and always using her herbs in her cooking."
+        },
+        {
+            "prompt": "Write about a family member.",
+            "response": "My mother's mother lived in Utah, the same place she and her family immigrated from Canton to. I hear little about her from my family, other than she suffered from schitzofrenia and other maladies. She was a \"hard woman\". She spoke little english and relied on my mother for translation. She passed due to complications from chemotherapy."
+        },
+        {
+            "prompt": "Write about a memory you have of family.",
+            "response": "A couple of years ago, after a Thanksgiving gathering, my family and I went out Black Friday shopping. My parents don't really shop much, but we went because the whole extended family went. I got caught up trying to figure out if I wanted to buy this leather jacket or not. I paced, and debated, and thought hard. My mom said I should just get it, because it wasn't worth thinking this hard about. My dad said I shouldn't get it, because it's expensive and it would mean more to find a good jacket at the thrift store. In the end I bought it."
+        },
+        {
+            "prompt": "Write about a memory you have of family.",
+            "response": "When I was a little kid, I was still the oldest of my cousins on my mom's side. We were having a gathering at our house, and all the little kids were rushing up and down the stairs, riding them like we could surf on our asses. I remember all the adults, yelling at us from the dining table, saying we were gonna make ourselves sick. A couple of rounds later, someone did get sick. It was me. I vomited onto the floor, and all the sliding stopped then and there."
         }
     ]
 }
