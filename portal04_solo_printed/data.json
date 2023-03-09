@@ -59,6 +59,14 @@
         {
             "prompt": "Write about a memory you have of family.",
             "response": "When I was a little kid, I was still the oldest of my cousins on my mom's side. We were having a gathering at our house, and all the little kids were rushing up and down the stairs, riding them like we could surf on our asses. I remember all the adults, yelling at us from the dining table, saying we were gonna make ourselves sick. A couple of rounds later, someone did get sick. It was me. I vomited onto the floor, and all the sliding stopped then and there."
+        },
+        {
+            "prompt": "Write about your hobbies.",
+            "response": "I do too many hobbies. One of my hobbies is knitting. I learned to knit from my grandmother, who was an absolute whiz at it. She would make jumpers and vests and blankets, all in stitches that I still don't understand today. Today I make a lot of socks, and I've made exactly one lumpy sweater."
+        },
+        {
+            "prompt": "Do you have a nighttime habit? Write about it.",
+            "response": "At night, I read. Not exactly books or novels all the time, but I always end up reading something, whether it's comics or webtoons or a chapter of something I'm excited about. "
         }
     ]
 }
