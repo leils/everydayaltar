@@ -67,6 +67,10 @@
         {
             "prompt": "Do you have a nighttime habit? Write about it.",
             "response": "At night, I read. Not exactly books or novels all the time, but I always end up reading something, whether it's comics or webtoons or a chapter of something I'm excited about. "
+        },
+        {
+            "prompt": "What's your drink of choice?",
+            "response": "In the morning, it's coffee. I've been drinking coffee since I was 12, when my mom would bring me half-cups to help me g get through all-nighters. Now I mostly make my own, with a pourover cone and some fresh beans. But my parents used to make what they called \"cowboy coffee\", just boiling the grounds over the stove."
         }
     ]
 }
