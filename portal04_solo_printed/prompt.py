@@ -56,7 +56,7 @@ while(1):
     printer.feed(2)
 
 
-    utils.write_to_file(new_data, datastore)
+    utils.write_to_file(response, datastore, prompt)
     print("\n")
     utils.print_slow("Going to sleep. Hope to see you soon.")
 
