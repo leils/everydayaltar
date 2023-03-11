@@ -1,4 +1,4 @@
-import time, sys, random, json, textwrap
+import time, sys, random, json
 
 def print_pause():
     return random.random() * .1
@@ -18,31 +18,15 @@ def print_slow(str):
         time.sleep(.02)
     time.sleep(0.2)
 
-# expects an array of strings
-def random_generator(responses): 
-    wordbank = ' '.join(responses).split()
-    random.shuffle(wordbank)
-    return textwrap.fill(" ".join(wordbank[0:80]), 40)
-
-# expects an array of strings
-def generation_loop(responses):
-    print_slow(random_generator(responses))
-    print("\n*****----------------------*****")
-    print("*****----------------------*****")
-
-    print("\n\nResift? y/n")
-    response = input().strip().lower()[:1]
-    if response == 'y': 
-        generation_loop(responses)
-    else: 
-        print("Goodbye.")
-
 def write_to_file(new_data, filename, dataname="data"): 
     with open(filename,'r+') as file:
         # First we load existing data into a dict.
         file_data = json.load(file)
         # Join new_data with file_data 
-        file_data[dataname].append(new_data)
+        if dataname in file_data: 
+            file_data[dataname].append(new_data)
+        else: 
+            file_data[dataname] = [new_data]
         # Sets file's current position at offset.
         file.seek(0)
         # convert back to json.

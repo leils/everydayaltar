@@ -1,13 +1,15 @@
-import time, sys, random, json, textwrap
+import time, random, json
 import os
-import utils
 import serial
+import utils, str_util
 import adafruit_thermal_printer
-import str_util
+from pathlib import Path
 
 dirname = os.path.dirname(__file__)
-source_filename = os.path.join(dirname, 'source.json')
-datastore = os.path.join(dirname, "data.json")
+p = Path(dirname)
+parentPath = str(p.parent)
+source_filename = os.path.join(parentPath, '/shared/source.json')
+datastore = os.path.join(parentPath, "/shared/data.json")
 
 ### PRINTER SETUP 
 ThermalPrinter = adafruit_thermal_printer.get_printer_class(2.68)
