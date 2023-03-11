@@ -8,8 +8,8 @@ from pathlib import Path
 dirname = os.path.dirname(__file__)
 p = Path(dirname)
 parentPath = str(p.parent)
-source_filename = os.path.join(parentPath, '/shared/source.json')
-datastore = os.path.join(parentPath, "/shared/data.json")
+source_filename = os.path.join(parentPath, 'shared/source.json')
+datastore = os.path.join(parentPath, "shared/data.json")
 
 ### PRINTER SETUP 
 ThermalPrinter = adafruit_thermal_printer.get_printer_class(2.68)
