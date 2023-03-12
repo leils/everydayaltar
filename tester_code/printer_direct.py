@@ -3,7 +3,8 @@ import adafruit_thermal_printer
 import str_util
 
 ThermalPrinter = adafruit_thermal_printer.get_printer_class(2.68)
-uart = serial.Serial("/dev/serial0", baudrate=19200, timeout=3000)
+# uart = serial.Serial("/dev/serial1", baudrate=19200, timeout=3000)
+uart = serial.Serial("/dev/ttyUSB0", baudrate=19200, timeout=3000)
 
 printer = ThermalPrinter(uart)
 
