@@ -1,4 +1,4 @@
-import serial, os
+import serial, os, json
 import adafruit_thermal_printer
 import str_util
 from pathlib import Path
