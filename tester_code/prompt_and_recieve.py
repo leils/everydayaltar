@@ -27,13 +27,21 @@ outro_message = """Thank you for sharing."""
 def print_matched_responses(q):
     global responses
     
-    print('--------------------------')
+    utils.print_slow('Finding matched responses ...\n')
+    print('-------------------------------')
     if q in responses: 
-        for r in responses[q]:
+        chosen_responses = []
+        if len(responses[q]) > 2:
+            chosen_responses = random.sample(responses[q], 2)
+        else: 
+            chosen_responses = responses[q]
+        
+        for r in chosen_responses:
             utils.print_slow(r)
-            print()
+            print('\n\n')
+            print('-------------------------------\n')
     else: 
-        utils.print_slow("no other responses found. check again later\n")
+        utils.print_slow("no other responses found. check again later, maybe someone else will stop by.\n")
 
 
 while(1): 
