@@ -1,21 +1,22 @@
 import time, random, json
 import os, sys
 from pathlib import Path
-import utils
 
-dirname = os.path.dirname(__file__)
-p = Path(dirname)
-parentPath = str(p.parent)
-sharedPath = parentPath + 'shared'
+#-------- shared utils access hack
+path = str(Path(Path(__file__).parent.absolute()).parent.absolute())
+sys.path.insert(0, path)
 
-
-source_filename = os.path.join(sharedPath, '/source.json')
-datastore = os.path.join(sharedPath, "/data_test.json")
+from shared import utils
 
 ### FILE SETUP 
+sharedPath = path + '/shared'
+source_filename = os.path.join(sharedPath, 'source.json')
+datastore = os.path.join(sharedPath, "data_test.json")
+
 f = open(source_filename)
 raw_data = json.load(f)
 questions = raw_data['questions']
+
 
 ### MESSAGING VARIABLES
 intro_message = """Take a breath. 
