@@ -1,4 +1,5 @@
 import time, sys, random, json
+import textwrap
 
 def print_pause():
     return random.random() * .1
@@ -31,3 +32,13 @@ def write_to_file(new_data, filename, dataname="data"):
         file.seek(0)
         # convert back to json.
         json.dump(file_data, file, indent = 4)
+
+# taken from https://forums.adafruit.com/viewtopic.php?f=19&t=56504
+def textWrapped(text, maxColumn):         #maxColumn can be fetched from Adafruit_Thermal.py (it is 32)
+	textWrapped = textwrap.wrap(text, width=maxColumn)
+	for i in range(len(textWrapped)):
+		textWrapped[i]+='\n'
+
+	textWrappedReversed = textWrapped[::-1]
+	stringForPrinter = ''.join(list(textWrappedReversed))
+	return stringForPrinter

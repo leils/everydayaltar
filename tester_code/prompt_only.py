@@ -1,3 +1,4 @@
+### For prompt and input testing on the computer, which does not have access to a thermal printer
 import time, random, json
 import os, sys
 from pathlib import Path
@@ -24,7 +25,6 @@ intro_message = """Take a breath.
     """
 
 outro_message = """Thank you for sharing."""
-
 
 #* ----Main Body of the Program--------------------------------------------------- */
 
