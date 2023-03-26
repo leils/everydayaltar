@@ -39,6 +39,22 @@ def textWrapped(text, maxColumn):         #maxColumn can be fetched from Adafrui
 	for i in range(len(textWrapped)):
 		textWrapped[i]+='\n'
 
-	textWrappedReversed = textWrapped[::-1]
+	textWrappedReversed = textWrapped[::-1] # reverse the lines in order to print bottom-to-top
 	stringForPrinter = ''.join(list(textWrappedReversed))
 	return stringForPrinter
+
+# param lines; array of arrays of strings 
+# param printers; array of printer objects
+def printInCycle(lines, printers):
+    print('not implemented')
+    # should handle line sets of varying lengths 
+    # cycle through printers, print the next line of the array 
+
+    maxLineLen = max(map(len, lines))
+
+    for i in range(maxLineLen - 1): #iterate through all of the lines available
+        for i in range(len(printers) - 1): #for each line index, iterate through the printers available
+            currentPrinter = printers[i]
+            linesForPrinter = lines[i]
+        
+        print('hello')

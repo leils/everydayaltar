@@ -37,7 +37,6 @@ def print_all(s):
         for p in printers: 
             p.print(l)
 
-
 while(1):
     i = input()
     print_all(i)
