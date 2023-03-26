@@ -58,6 +58,7 @@ def main():
         formattedResponses = utils.formatArrayForMultiPrint(responseSet)
         utils.printInCycle(formattedResponses, printers)
         formattedQuestion = utils.textWrapped(q).splitlines()
+        utils.printToAll(prompts['divider'], printers)
         utils.printToAll(formattedQuestion, printers)
         utils.write_to_file(response, data_filename, q)
         utils.print_slow(prompts['sleep'])
