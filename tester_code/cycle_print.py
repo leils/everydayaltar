@@ -1,6 +1,3 @@
-# import serial
-# import adafruit_thermal_printer
-
 import sys
 from pathlib import Path
 
@@ -10,7 +7,7 @@ sys.path.insert(0, path)
 
 from shared import utils
 
-printers = utils.setupPrinters();
+printers = utils.setupPrinters()
 
 s1 = "I don't know my ancestors and I wish I knew more about them. But I wonder how I can bring up that question and who do I ask?"
 s2 = "I usually call my mother with bad news, or my friend Joe. When I want to tell them the worries I have, I know theyll listen with care and call me on my bullshit whenever I need them to. And they'll take a moment to mourn with me"
