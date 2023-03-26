@@ -41,4 +41,5 @@ def print_all(s):
 while(1):
     i = input()
     print_all(i)
+    p.feed(2)
 
