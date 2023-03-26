@@ -1,6 +1,26 @@
 import time, sys, random, json
 import textwrap
 
+defaultMaxColumn = 32
+
+def setupPrinters():
+    import serial
+    import adafruit_thermal_printer
+
+    ThermalPrinter = adafruit_thermal_printer.get_printer_class(2.68)
+
+    #there's definitely a better way of doing this
+    uart1 = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=3000)
+    uart2 = serial.Serial("/dev/ttyUSB1", baudrate=9600, timeout=3000)
+    uart3 = serial.Serial("/dev/ttyUSB2", baudrate=9600, timeout=3000)
+
+    printer1 = ThermalPrinter(uart1)
+    printer2 = ThermalPrinter(uart2)
+    printer3 = ThermalPrinter(uart3)
+
+    printers = [printer1, printer2, printer3]
+    return printers
+
 def print_pause():
     return random.random() * .1
 
@@ -34,7 +54,7 @@ def write_to_file(new_data, filename, dataname="data"):
         json.dump(file_data, file, indent = 4)
 
 # taken from https://forums.adafruit.com/viewtopic.php?f=19&t=56504
-def textWrapped(text, maxColumn):         #maxColumn can be fetched from Adafruit_Thermal.py (it is 32)
+def textWrapped(text, maxColumn = 32):         #maxColumn can be fetched from Adafruit_Thermal.py (it is 32)
 	textWrapped = textwrap.wrap(text, width=maxColumn)
 	for i in range(len(textWrapped)):
 		textWrapped[i]+='\n'
