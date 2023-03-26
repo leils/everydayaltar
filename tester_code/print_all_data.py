@@ -18,10 +18,7 @@ raw_data = json.load(f)
 
 printer = ThermalPrinter(uart)
 
-# printer.test_page()
 printer.feed(2)
-#printer.bold = True
-# printer.inverse = True
 printer.up_down_mode = True
 
 for q, a in raw_data.items():
