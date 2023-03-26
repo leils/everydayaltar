@@ -5,14 +5,13 @@
         "Share one small thing about yourself",
         "What's a moment you remember that is important to you?",
         "Write about a family member.",
-		"What's one small thing about yourself?",
-		"What's your favorite food?",
-		"Favorite snack?",
+		"What's your favorite food? Write about why.",
+		"Favorite snack? Why?",
 		"Where do you go to relax?",
 		"Write about an object you own.",
 		"What do you eat when you need comfort?",
 		"What do you eat when you're stressed?",
-		"What's your drink of choice?",
+		"How do you make your drink of choice? Why do you like it?",
 		"What's a ritual that exists around your home?",
 		"Do you have a morning habit? Write about it.",
 		"Do you have a nighttime habit? Write about it.",
@@ -32,5 +31,13 @@
 		"Write about a childhood story.",
 		"Write about an object you carry with you.",
 		"Share a story about yourself as a child."
-	]
+	],
+	"prompts": {
+		"divider": "-------------------------------",
+		"wakeup": "press enter to wake up",
+		"intro_message": "Take a breath.\nWhen you're ready, press enter.\n",
+		"ask_to_share": "Please, share some things. Take your time.\n",
+		"outro_message": "Thank you for sharing.\n",
+		"sleep": "Going back to sleep ..."
+	}
 }

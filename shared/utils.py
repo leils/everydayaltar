@@ -83,3 +83,17 @@ def printInCycle(lines, printers):
             lineSet = lines[p]
             if i < len(lineSet):
                 printer.print(lineSet[i])
+
+#param lines; pre-formatted array of strings
+#printers; array of printer objects
+def printToAll(lines, printers):
+    for l in lines: 
+        for p in printers: 
+            p.print(l)
+    for p in printers: 
+        p.feed(2)
+
+def formatArrayForMultiPrint(arrayOfStrings):
+    wrappedStrings = list(map(textWrapped, arrayOfStrings))
+    splitStrings = list(map(lambda s: s.splitlines(), wrappedStrings))
+    return splitStrings
