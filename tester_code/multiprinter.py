@@ -36,9 +36,10 @@ def print_all(s):
     for l in lines: 
         for p in printers: 
             p.print(l)
+    for p in printers: 
+        p.feed(2)
 
 while(1):
     i = input()
     print_all(i)
-    p.feed(2)
 
