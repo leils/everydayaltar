@@ -43,7 +43,7 @@ def printInCycle(lines, printers):
             printer = printers[p]
             lineSet = lines[p]
             if i < len(lineSet):
-                p.print(lineSet[i])
+                printer.print(lineSet[i])
 
 s1 = "I recently rediscovered my own imagination when trying to fall asleep. Why think about the chores of tomorrow when I can pretend that pigeons are huge and I can grab onto their wings and hitch a ride? Or I can hold my breath indefinitely underwater and swim with Pokemon-lookin dratini?"
 s2 = "I usually call my mother with bad news, or my friend Joe. When I want to tell them the worries I have, I know theyll listen with care and call me on my bullshit whenever I need them to. And they'll take a moment to mourn with me"
