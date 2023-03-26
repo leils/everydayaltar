@@ -60,6 +60,7 @@ def main():
         formattedQuestion = utils.textWrapped(q).splitlines()
         utils.printToAll([prompts['divider']], printers)
         utils.printToAll(formattedQuestion, printers)
+        print("writing to file ...")
         utils.write_to_file(response, data_filename, q)
         utils.print_slow(prompts['sleep'])
 
