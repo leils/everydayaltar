@@ -39,7 +39,7 @@ def printInCycle(lines, printers):
     maxLineLen = max(map(len, lines))
 
     for i in range(maxLineLen):
-        for p in len(printers):
+        for p in range(len(printers)):
             printer = printers[p]
             lineSet = lines[p]
             if i < len(lineSet):
