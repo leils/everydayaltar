@@ -13,9 +13,9 @@ from shared import utils
 ThermalPrinter = adafruit_thermal_printer.get_printer_class(2.68)
 
 #there's definitely a better way of doing this
-uart1 = serial.Serial("/dev/serial1", baudrate=19200, timeout=3000)
-uart2 = serial.Serial("/dev/serial2", baudrate=19200, timeout=3000)
-uart3 = serial.Serial("/dev/serial3", baudrate=19200, timeout=3000)
+uart1 = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=3000)
+uart2 = serial.Serial("/dev/ttyUSB1", baudrate=9600, timeout=3000)
+uart3 = serial.Serial("/dev/ttyUSB2", baudrate=9600, timeout=3000)
 
 printer1 = ThermalPrinter(uart1)
 printer2 = ThermalPrinter(uart2)
