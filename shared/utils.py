@@ -19,6 +19,11 @@ def setupPrinters():
     printer3 = ThermalPrinter(uart3)
 
     printers = [printer1, printer2, printer3]
+
+    for p in printers: 
+        p.feed(2)
+        p.up_down_mode = True
+
     return printers
 
 def print_pause():
