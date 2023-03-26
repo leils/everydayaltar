@@ -46,15 +46,15 @@ def textWrapped(text, maxColumn):         #maxColumn can be fetched from Adafrui
 # param lines; array of arrays of strings 
 # param printers; array of printer objects
 def printInCycle(lines, printers):
-    print('not implemented')
-    # should handle line sets of varying lengths 
-    # cycle through printers, print the next line of the array 
+    if len(lines) != len(printers): 
+        print("Number of line sets (", len(lines), ") must equal number of printers (", len(printers),")")
+        return
 
     maxLineLen = max(map(len, lines))
 
-    for i in range(maxLineLen - 1): #iterate through all of the lines available
-        for i in range(len(printers) - 1): #for each line index, iterate through the printers available
-            currentPrinter = printers[i]
-            linesForPrinter = lines[i]
-        
-        print('hello')
+    for i in range(maxLineLen):
+        for p in range(len(printers)):
+            printer = printers[p]
+            lineSet = lines[p]
+            if i < len(lineSet):
+                printer.print(lineSet[i])
