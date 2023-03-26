@@ -50,9 +50,9 @@ s2 = "I usually call my mother with bad news, or my friend Joe. When I want to t
 s3 = "I am really great at working between the hours of 9pm and 2am. There's something about that time that really works with my brain. Maybe it's because I never used to sleep at good hours, I used to only sleep for 4 so 5 hours each night. Even when I could sleep more, I'd take that extra time to read or surf the web instead. "
 
 lineGroup = [
-    utils.textWrapped(s1, printerLineLen),
-    utils.textWrapped(s2, printerLineLen),
-    utils.textWrapped(s3, printerLineLen)
+    utils.textWrapped(s1, printerLineLen).splitlines(),
+    utils.textWrapped(s2, printerLineLen).splitlines(),
+    utils.textWrapped(s3, printerLineLen).splitlines()
 ]
 
 printInCycle(lineGroup, printers)
