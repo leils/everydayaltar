@@ -32,8 +32,10 @@ def print_all(s):
     global printers
 
     formattedString = utils.textWrapped(s, 32)
-    for p in printers: 
-        p.print(formattedString)
+    lines = formattedString.splitlines()
+    for l in lines: 
+        for p in printers: 
+            p.print(l)
 
 
 while(1):
