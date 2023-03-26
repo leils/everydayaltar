@@ -28,7 +28,7 @@ def fetch_matched_responses(q, currentResponse):
             chosen_responses = random.sample(responses[q], 2)
         else: 
             chosen_responses = responses[q]
-        chosen_responses.insert(currentResponse, 1)
+        chosen_responses.insert(1, currentResponse)
     else: 
         utils.print_slow('No other responses found. Check again later, maybe someone will stop by and share.\n')
         chosen_responses = ["", currentResponse, ""]
