@@ -59,6 +59,7 @@ def main():
         utils.printInCycle(formattedResponses, printers)
         formattedQuestion = utils.textWrapped(q).splitlines()
         utils.printToAll(formattedQuestion, printers)
+        utils.write_to_file(response, data_filename, q)
         utils.print_slow(prompts['sleep'])
 
         time.sleep(5)
