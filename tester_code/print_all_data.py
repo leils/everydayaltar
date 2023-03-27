@@ -22,9 +22,7 @@ printer.feed(2)
 printer.up_down_mode = True
 
 for q, a in raw_data.items():
-    printer.print(str_util.textWrapped(q, 32))
     printer.feed(2)
     for answer in a: 
+        printer.print(str_util.textWrapped(q, 32))
         printer.print(str_util.textWrapped(answer, 32))
-
-
