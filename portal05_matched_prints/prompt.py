@@ -24,11 +24,12 @@ def fetch_matched_responses(q, currentResponse):
     utils.print_slow('Finding matched responses ...\n')
     if q in responses: 
         chosen_responses = []
-        if len(responses[q]) > 2:
+        if len(responses[q]) >= 2:
             chosen_responses = random.sample(responses[q], 2)
-        else: 
+            chosen_responses.insert(1, currentResponse)
+        else: #there's only 1 response
             chosen_responses = responses[q]
-        chosen_responses.insert(1, currentResponse)
+            chosen_responses.extend([currentResponse, ""])
     else: 
         utils.print_slow('No other responses found. Check again later, maybe someone will stop by and share.\n')
         chosen_responses = ["", currentResponse, ""]
