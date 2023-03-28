@@ -83,6 +83,9 @@ def printInCycle(lines, printers):
             lineSet = lines[p]
             if i < len(lineSet):
                 printer.print(lineSet[i])
+    
+    for p in printers: 
+        p.feed(2)
 
 #param lines; pre-formatted array of strings
 #printers; array of printer objects

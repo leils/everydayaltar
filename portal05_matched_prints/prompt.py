@@ -21,7 +21,7 @@ responses = json.load(open(data_filename))
 def fetch_matched_responses(q): 
     global responses
 
-    utils.print_slow('Finding matched responses ...\n')
+    utils.print_slow('Resurfacing others\' responses ...\n')
     if q in responses: 
         chosen_responses = []
         if len(responses[q]) >= 2:
