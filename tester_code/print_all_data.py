@@ -15,8 +15,19 @@ data_filename = os.path.join(sharedPath, "data.json")
 
 responses = json.load(open(data_filename))
 
+toPrint = []
+
 for question in responses.keys():
     resp = responses[question]
     for r in resp: 
-        utils.printToAll(utils.textWrapped(r).splitlines(), printers)
-        utils.printToAll(utils.textWrapped(question).splitlines(), printers)
+        toPrint.append([question, r])
+        # utils.printToAll(utils.textWrapped(r).splitlines(), printers)
+        # utils.printToAll(utils.textWrapped(question).splitlines(), printers)
+
+i = input("Randomize y/n")
+if i == "y":
+    random.shuffle(toPrint)
+
+for pair in toPrint: 
+    utils.printToAll(utils.textWrapped(pair[1]).splitlines(), printers)
+    utils.printToAll(utils.textWrapped(pair[0]).splitlines(), printers)
