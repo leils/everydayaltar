@@ -18,7 +18,7 @@ prompts = source_data['prompts']
 questions = source_data['questions']
 responses = json.load(open(data_filename))
 
-def fetch_matched_responses(q, currentResponse): 
+def fetch_matched_responses(q): 
     global responses
 
     utils.print_slow('Finding matched responses ...\n')
@@ -26,13 +26,12 @@ def fetch_matched_responses(q, currentResponse):
         chosen_responses = []
         if len(responses[q]) >= 2:
             chosen_responses = random.sample(responses[q], 2)
-            chosen_responses.insert(1, currentResponse)
         else: #there's only 1 response
             chosen_responses = responses[q]
-            chosen_responses.extend([currentResponse, ""])
+            chosen_responses.extend([""])
     else: 
         utils.print_slow('No other responses found. Check again later, maybe someone will stop by and share.\n')
-        chosen_responses = ["", currentResponse, ""]
+        chosen_responses = ["", ""]
     
     return chosen_responses
 
@@ -45,23 +44,28 @@ def main():
         
         utils.print_slow(prompts['intro_message'])
         input()
-        utils.print_slow(prompts['ask_to_share'])
-
         q = random.choice(questions)
         utils.print_slow(q + "\n")
+
+        responseSet = fetch_matched_responses(q)
+        formattedResponses = utils.formatArrayForMultiPrint(responseSet)
+        utils.printToAll([prompts['divider']], printers)
+        utils.printInCycle(formattedResponses, printers[1::-1]) # print retrieved responses to left and middle printers
+
+        utils.print_slow(prompts['ask_to_share'])
 
         print(prompts['divider'])
         response = input()
         print(prompts['divider'])
         utils.print_slow(prompts['outro_message'])
 
-        responseSet = fetch_matched_responses(q, response)
-        formattedResponses = utils.formatArrayForMultiPrint(responseSet)
-        utils.printInCycle(formattedResponses, printers)
+        print("Adding your words to the archive ...")
+        # PRINT TO THE THIRD PRINTER
+        printers[2].print(utils.textWrapped(response))
+
         formattedQuestion = utils.textWrapped(q).splitlines()
-        utils.printToAll([prompts['divider']], printers)
         utils.printToAll(formattedQuestion, printers)
-        print("writing to file ...")
+
         utils.write_to_file(response, data_filename, q)
         utils.print_slow(prompts['sleep'])
 
