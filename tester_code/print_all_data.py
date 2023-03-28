@@ -1,28 +1,22 @@
-import serial, os, json
-import adafruit_thermal_printer
-import str_util
+import sys, json, os, random, time
 from pathlib import Path
 
-ThermalPrinter = adafruit_thermal_printer.get_printer_class(2.68)
-# uart = serial.Serial("/dev/serial1", baudrate=19200, timeout=3000)
-uart = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=3000)
+#-------- shared utils access hack
+path = str(Path(Path(__file__).parent.absolute()).parent.absolute())
+sys.path.insert(0, path)
 
-dirname = os.path.dirname(__file__)
-p = Path(dirname)
-parentPath = str(p.parent)
-source_filename = os.path.join(parentPath, 'shared/source.json')
-datastore = os.path.join(parentPath, "shared/data.json")
+from shared import utils
+printers = utils.setupPrinters()
 
-f = open(datastore)
-raw_data = json.load(f)
+#-------- JSON file loads for questions & responses
+sharedPath = path + '/shared'
+source_filename = os.path.join(sharedPath, 'source.json')
+data_filename = os.path.join(sharedPath, "data.json")
 
-printer = ThermalPrinter(uart)
+responses = json.load(open(data_filename))
 
-printer.feed(2)
-printer.up_down_mode = True
-
-for q, a in raw_data.items():
-    printer.feed(2)
-    for answer in a: 
-        printer.print(str_util.textWrapped(q, 32))
-        printer.print(str_util.textWrapped(answer, 32))
+for question in responses.keys():
+    resp = responses[question]
+    for r in resp: 
+        utils.printToAll(utils.textWrapped(r).splitlines(), printers)
+        utils.printToAll(utils.textWrapped(question).splitlines(), printers)

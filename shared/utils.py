@@ -91,7 +91,7 @@ def printToAll(lines, printers):
         for p in printers: 
             p.print(l)
     for p in printers: 
-        p.feed(4)
+        p.feed(2)
 
 def formatArrayForMultiPrint(arrayOfStrings):
     wrappedStrings = list(map(textWrapped, arrayOfStrings))
