@@ -21,7 +21,6 @@ responses = json.load(open(data_filename))
 def fetch_matched_responses(q): 
     global responses
 
-    utils.print_slow('Resurfacing others\' responses ...\n')
     if q in responses: 
         chosen_responses = []
         if len(responses[q]) >= 2:
@@ -44,6 +43,7 @@ def main():
         
         utils.print_slow(prompts['intro_message'])
         input()
+        os.system('clear')
         q = random.choice(questions)
         utils.print_slow(q + "\n")
         utils.print_slow(prompts['read_prompt'])
