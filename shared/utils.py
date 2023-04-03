@@ -100,3 +100,12 @@ def formatArrayForMultiPrint(arrayOfStrings):
     wrappedStrings = list(map(textWrapped, arrayOfStrings))
     splitStrings = list(map(lambda s: s.splitlines(), wrappedStrings))
     return splitStrings
+
+def printInvertedToAll(lines, printers):
+    for p in printers: 
+        p.inverse = True
+    
+    printToAll(lines, printers)
+
+    for p in printers: 
+        p.inverse = False

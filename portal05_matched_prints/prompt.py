@@ -46,6 +46,7 @@ def main():
         input()
         q = random.choice(questions)
         utils.print_slow(q + "\n")
+        utils.print_slow(prompts['read_prompt'])
 
         responseSet = fetch_matched_responses(q)
         formattedResponses = utils.formatArrayForMultiPrint(responseSet)
@@ -64,7 +65,7 @@ def main():
         printers[2].print(utils.textWrapped(response))
 
         formattedQuestion = utils.textWrapped(q).splitlines()
-        utils.printToAll(formattedQuestion, printers)
+        utils.printInvertedToAll(formattedQuestion, printers)
 
         utils.write_to_file(response, data_filename, q)
         utils.print_slow(prompts['sleep'])
