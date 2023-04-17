@@ -1,7 +1,10 @@
 import time, sys, random, json
 import textwrap
+import curses
+from curses.textpad import Textbox, rectangle
 
 defaultMaxColumn = 32
+linesToFeed = 3
 
 def setupPrinters():
     import serial
@@ -21,7 +24,7 @@ def setupPrinters():
     printers = [printer1, printer2, printer3]
 
     for p in printers: 
-        p.feed(2)
+        p.feed(linesToFeed)
         p.up_down_mode = True
 
     return printers
@@ -85,7 +88,7 @@ def printInCycle(lines, printers):
                 printer.print(lineSet[i])
     
     for p in printers: 
-        p.feed(2)
+        p.feed(linesToFeed)
 
 #param lines; pre-formatted array of strings
 #printers; array of printer objects
@@ -94,7 +97,7 @@ def printToAll(lines, printers):
         for p in printers: 
             p.print(l)
     for p in printers: 
-        p.feed(2)
+        p.feed(linesToFeed)
 
 def formatArrayForMultiPrint(arrayOfStrings):
     wrappedStrings = list(map(textWrapped, arrayOfStrings))
@@ -109,3 +112,20 @@ def printInvertedToAll(lines, printers):
 
     for p in printers: 
         p.inverse = False
+
+def validateCurses(ch):
+
+    # exit input with the escape key
+    escape = 27
+    if ch == escape:
+        ch = curses.ascii.BEL # Control-G
+    
+    # delete the character to the left of the cursor
+    elif ch in (curses.KEY_BACKSPACE, curses.ascii.DEL):
+        ch = curses.KEY_BACKSPACE
+    
+    # exit input to resize windows
+    elif ch == curses.KEY_RESIZE:
+        ch = curses.ascii.BEL # Control-G
+
+    return ch

@@ -1,5 +1,5 @@
 {
-    "Tell me about your community.": [
+    "Tell me about your community. Who is in it? What do you love about it?": [
         "My community is a group of incredibly interesting people. They're a group of people who have co come together across the world to a singular place to look at what it means to create art and make things that wow and delight.",
         "My community gives me a place to call mine, even for a little bit. My community gives me something that can't be bought, which is a place that is both accepting and challenging. It gives me people to hold and be held by, people to challenge my ideas and values, people to make me think just a little bit harder. My community gives me love."
     ],
@@ -40,7 +40,7 @@
         "When I was a little kid, I was still the oldest of my cousins on my mom's side. We were having a gathering at our house, and all the little kids were rushing up and down the stairs, riding them like we could surf on our asses. I remember all the adults, yelling at us from the dining table, saying we were gonna make ourselves sick. A couple of rounds later, someone did get sick. It was me. I vomited onto the floor, and all the sliding stopped then and there.",
         "When we moved into the house my family lives in now, it was absolutely gutted. We redid the whole thing ourselves, from laying laminate tile in the kitchen to paving the back yard. I remember being not much more than 5, and carrying pavers in from the front yard to the back with my mom. She'd carry 4 or 5, I'd carry 1, and we'd load them into my little red flyer wheelbarrow."
     ],
-    "Write about one of your hobbies.": [
+    "Write about one of your hobbies. WHy do you do it? Who do you do it with?": [
         "I do too many hobbies. One of my hobbies is knitting. I learned to knit from my grandmother, who was an absolute whiz at it. She would make jumpers and vests and blankets, all in stitches that I still don't understand today. Today I make a lot of socks, and I've made exactly one lumpy sweater."
     ],
     "Do you have a nighttime habit? Write about it.": [
@@ -50,9 +50,7 @@
     "What do you do to unwind?": [
         "A lot of the time now, I watch things on YouTube or TikTok. But honestly, that doesn't really feel like unwinding. When I'm really  relaxing, I'm taking the time to knit, or cook some food for myself and friends.  When I'm truly vegging out, I'll pick up a new video game and play it for days, something I never got to do as a kid. ",
         "Hmmm.....sometimes I read, maybe I'll take a walk. Or sometimes I'll just lay down and stare at the ceiling, maybe put on noise cancelling headphones (without any noise) and just block everything out. Or doom scroll on tiktok, that too.",
-        "I love taking long walks. I haven't done that in a while, but it's so calming to just wander endlessly through a park or a neighborhood. "
-    ],
-    "Where do you go to relax? Why?": [
+        "I love taking long walks. I haven't done that in a while, but it's so calming to just wander endlessly through a park or a neighborhood. ",
         "To relax, I go to the park. I take my time walking around, looking at the grass and the trees, watching the people go by.",
         "I go relax on my couch. My couch is my favorite place to be, especially when the sun hits it through the window just right. I love curling up with a book and a blanket, and laying there all evening. "
     ],
@@ -62,7 +60,7 @@
         "I started to get into film photography a little after high school, and got myself a little dinky plastic camera to play with. In response, my dad gave me his old film camera, one that he used in college, and has a bunch of wonderful photos from. That camera is now mine, and is something that I hope to have for the rest of my life.",
         "I have a small box I got from India in which I keep little notes and cards and tokens from people I love. I've moved a lot, but this box stays with me wherever I go. It's the one thing I'd grab if there were a fire."
     ],
-    "Do you have a favorite plant/animal? What do you like about it?": [
+	"Do you an affinity for a plant or animal? What do you like about it?":[
         "I do have a fav animal which is a deer. If we were in a \"Harry Potter\" movie, \"deer\" could be my \"patronum\"",
         "My favorite animal is the raccoon. I think it would be cute yet daunting to have a pet that has apposable thumbs. But they're so cute and some are domesticated which gives me hope that maybe one day I can have a raccoon.",
         "i never had a pet growing up and it made me feel like my family might have been less kind than others. there was a practical and clinicalness to the choicce which made sense to me, and though i didn't want a pet, it seems to have informed me in a way. ",
@@ -93,7 +91,7 @@
         "My mom lost my favorite little stuffed turtled named Tortsy when I was in elementary school. Still haven't forgiven her, I bring it up now and again. She swears she didn't. Sure mom. Whatever you say.",
         "When I was maybe 8, I jumped into the pool in my aunt's backyard. It wasn't that deep, so my toe scraped the bottom, dragging along the textrue like sandpaper. When i resurfaced, I didn't feel much. But when I looked down, I saw blood blossom up out of my knuckle, and almost fainted."
     ],
-    "Do you have a favorite color? Write about it.": [
+    "Do you have a favorite color? Write about how it makes you feel.": [
         "I am a big fan of all colors but I think it really depends on the year and mood I've been riding on. Currently, it's forest green. Something about a deep, soothing, earthy color of it makes me feel grounded and happy."
     ],
     "Share a story about a piece of your home decor.": [
@@ -102,12 +100,11 @@
     ],
     "Who did you call last with good news? What was it?": [
         "i don't usually call people, but i texted my friend anh, my mom, and a mentor person when i recently got into a residency i didn't know i would be qualified for. :`)",
-        "",
-        "I had therapty today, sows was shared with her. Is that a call, I don't know. I suppose the last person I called with good news was my sister. Thank you for tis question."
+        "I had therapy today, sows was shared with her. Is that a call, I don't know. I suppose the last person I called with good news was my sister. Thank you for tis question."
     ],
     "What do you think defines an ancestor?": [
         "An ancestor is anyone, spiritually or genetically, that you descend from. They're whoever has helped shape your past, whether you remember them, or name them, or not.",
-        "Age and folkore.  The stories we tthe people we will never meet and how thostories connect us to family and time and history"
+        "Age and folkore.  The stories we tthe people we will never meet and how those stories connect us to family and time and history"
     ],
     "Do you have a morning habit? Write about it.": [
         "i listen to death metal really really loudly"
