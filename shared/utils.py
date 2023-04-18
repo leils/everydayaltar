@@ -24,6 +24,13 @@ def print_slow(str):
         time.sleep(.02)
     time.sleep(0.2)
 
+def yes_or_no(question):
+    reply = str(input(question+' (y/n): ')).lower().strip()
+    if reply[0] == 'y':
+        return True
+    else: 
+        return False
+
 #------------------------ FILE UTILS ------------------------------
 
 def write_to_file(new_data, filename, dataname="data"): 

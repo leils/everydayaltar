@@ -29,12 +29,12 @@
 	"prompts": {
 		"divider": "-------------------------------",
 		"wakeup": "press enter to wake up",
-		"intro_message": "Take a breath.\nWhen you're ready, press enter.\n",
+		"intro_message": "Take a breath.\n\n\nWhen you're ready, press enter.\n",
 		"read_prompt": "Please read the stories others have shared.\n",
-		"ask_to_share": "Add your words to the archive\n.",
+		"ask_to_share": "Now it's your turn to share.\n",
 		"outro_message": "Thank you for sharing.\n",
 		"add": "Adding your words to the archive.\n",
-		"continue": "Do you want to add more to the archive? Y/N",
+		"continue": "Add more to the archive?",
 		"sleep": "Going back to sleep. Hope to see you soon."
 	}
 }

@@ -19,6 +19,9 @@ def main():
 
     os.system('clear')
     print(inputString)
+
+    formatted = " ".join(x.strip() for x in inputString.split("\n"))
+    print(formatted)
     input()
     
 

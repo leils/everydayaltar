@@ -6,7 +6,13 @@ path = str(Path(Path(__file__).parent.absolute()).parent.absolute())
 sys.path.insert(0, path)
 
 from shared import utils
-# printers = utils.setupPrinters()
+
+printersAvailable = False
+try: 
+    printers = utils.setupPrinters()
+    printersAvailable = True
+except: 
+    pass
 
 #-------- JSON file loads for questions & responses
 sharedPath = path + '/shared'
@@ -45,11 +51,11 @@ def main():
 
     while(1): 
         os.system('clear')
-        # input(prompts['wakeup']) # Wait for wakeup 
-        # os.system('clear')
+        input(prompts['wakeup']) # Wait for wakeup 
+        os.system('clear')
 
-        # utils.print_slow(prompts['intro_message'])
-        # input()
+        utils.print_slow(prompts['intro_message'])
+        input()
         respondingToQuestions = True
 
         while(respondingToQuestions): 
@@ -57,38 +63,38 @@ def main():
             formattedResponses = utils.formatArrayForMultiPrint(questionSet['responses'])
 
             os.system('clear')
-            # utils.printInCycle(formattedResponses, printers[1::-1])
-            print(formattedResponses)
-            time.sleep(2)
+            if printersAvailable: 
+               utils.printInCycle(formattedResponses, printers[1::-1])
+            else: 
+                print(formattedResponses)
+                input() 
 
-            # utils.print_slow(prompts['ask_to_share'])
-            # time.sleep(1)
-            input() # todo take out 
+            utils.print_slow(prompts['ask_to_share'])
 
             response = curses.wrapper(utils.inputBox, questionSet['question'])
-            print(response)
-
-            time.sleep(1)
+            os.system('clear')
+            
+            if printersAvailable:
+                printers[2].print(utils.textWrapped(response))
+            else: 
+                print(response)
+                time.sleep(1)
 
             utils.print_slow(prompts['outro_message'])
             utils.print_slow(prompts['add'])
 
-            # printers[2].print(utils.textWrapped(response))
-            # formattedQuestion = utils.textWrapped(questionSet['question']).splitlines()
-            # utils.printInvertedToAll(formattedQuestion, printers)
+            if printersAvailable: 
+                printers[2].print(utils.textWrapped(response))
+                formattedQuestion = utils.textWrapped(questionSet['question']).splitlines()
+                utils.printInvertedToAll(formattedQuestion, printers)
 
             utils.write_to_file(response, data_filename, questionSet['question'])
-            utils.print_slow(prompts['sleep'])
 
-            #TODO check for continue?
+            if not utils.yes_or_no(prompts['continue']): 
+                respondingToQuestions = False
 
-            respondingToQuestions = False
-        utils.print_slow('bye')
+        utils.print_slow(prompts['sleep'])
         time.sleep(1)
-
-
-
-
 
 if __name__ == "__main__":
     main()
