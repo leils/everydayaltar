@@ -72,20 +72,21 @@ def main():
             utils.print_slow(prompts['ask_to_share'])
 
             response = curses.wrapper(utils.inputBox, questionSet['question'])
+            formattedResponse = "".join(x.strip() for x in response.split("\n"))
             os.system('clear')
 
             utils.print_slow(prompts['outro_message'])
             utils.print_slow(prompts['add'])
 
             if printersAvailable: 
-                printers[2].print(utils.textWrapped(response))
+                printers[2].print(utils.textWrapped(formattedResponse))
                 formattedQuestion = utils.textWrapped(questionSet['question']).splitlines()
                 utils.printInvertedToAll(formattedQuestion, printers)
             else: 
-                print(response)
+                print(formattedResponse)
                 time.sleep(1)
 
-            utils.write_to_file(response, data_filename, questionSet['question'])
+            utils.write_to_file(formattedResponse, data_filename, questionSet['question'])
 
             if not utils.yes_or_no(prompts['continue']): 
                 respondingToQuestions = False
