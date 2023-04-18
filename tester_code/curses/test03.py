@@ -1,35 +1,46 @@
-import curses, traceback
-import curses.textpad
+# Test to get curses and printout to work back and forth
+import curses, traceback, time
+from curses.textpad import Textbox
+def validate(ch):
 
-def main(stdscr): 
-    global screen
-    screen = stdscr.subwin(23, 79, 2, 2)
-    screen.box()
-    print('HELLO')
+    # exit input with the escape key
+    escape = 27
+    if ch == escape:
+        ch = curses.ascii.BEL # Control-G
+    
+    # delete the character to the left of the cursor
+    elif ch in (curses.KEY_BACKSPACE, curses.ascii.DEL):
+        ch = curses.KEY_BACKSPACE
+    
+    # exit input to resize windows
+    elif ch == curses.KEY_RESIZE:
+        ch = curses.ascii.BEL # Control-G
 
-    screen.addstr(1, 1, "hello")
-    screen.getch()
+    return ch
+
+def getInput(stdscr):
+    stdscr.clear()
+    stdscr.addstr(0, 0, "write a message please")
+
+    editwin = curses.newwin(10,30, 2,1)
+    # editwin.box()
+
+    editBox = Textbox(editwin, insert_mode=True)
+    editBox.edit(validate)
+    message = editBox.gather().strip()
+    stdscr.clear()
+    return message
+
+
+def main(): 
+    print('hello, this is waiting for something')
+    input()
+    inputString = curses.wrapper(getInput)
+    print(inputString)
+    input()
+    
 
 if __name__ == "__main__":
-    try:
-        # Initialize curses
-        stdscr=curses.initscr()
-        # Turn off echoing of keys, and enter cbreak mode,
-        # where no buffering is performed on keyboard input
-        curses.noecho()
-        curses.cbreak()
-
-        # do things here
-        main(stdscr)
-
-        stdscr.keypad(0)
-        curses.echo()
-        curses.nocbreak()
-        curses.endwin()  
-    except:
-        stdscr.keypad(0)
-        curses.echo()
-        curses.nocbreak()
-        curses.endwin()
-        traceback.print_exc()           # Print the exception
+    main()
+ 
 

@@ -32,7 +32,7 @@ def fetch_matched_responses(q):
     
     return chosen_responses
 
-def loopSetup():
+def questionLoopSetup():
     q = random.choice(questions)
     responseSet = fetch_matched_responses(q)
     return {
@@ -40,10 +40,32 @@ def loopSetup():
         "responses": responseSet
     }
 
-
 def main(window):
+    respondingToQuestions = False
+
     while(1): 
         os.system('clear')
+        input(prompts['wakeup']) # Wait for wakeup 
+        os.system('clear')
+
+        utils.print_slow(prompts['intro_message'])
+        input()
+        respondingToQuestions = True
+
+        while(respondingToQuestions): 
+            questionSet = questionLoopSetup()
+            formattedResponses = utils.formatArrayForMultiPrint(questionSet['responses'])
+
+            os.system('clear')
+            # utils.printInCycle(formattedResponses, printers[1::-1])
+            print(formattedResponses)
+            time.sleep(5)
+
+            utils.print_slow(prompts['ask_to_share'])
+
+            # curses input
+
+            
 
 
 if __name__ == "__main__":

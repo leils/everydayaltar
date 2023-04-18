@@ -33,6 +33,7 @@
 		"read_prompt": "Please read the stories others have shared.\n",
 		"ask_to_share": "Add your words to the archive\n.",
 		"outro_message": "Thank you for sharing.\n",
+		"continue": "Do you want to add more to the archive? Y/N",
 		"sleep": "Going back to sleep. Hope to see you soon."
 	}
 }
