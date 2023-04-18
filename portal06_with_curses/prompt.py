@@ -73,12 +73,6 @@ def main():
 
             response = curses.wrapper(utils.inputBox, questionSet['question'])
             os.system('clear')
-            
-            if printersAvailable:
-                printers[2].print(utils.textWrapped(response))
-            else: 
-                print(response)
-                time.sleep(1)
 
             utils.print_slow(prompts['outro_message'])
             utils.print_slow(prompts['add'])
@@ -87,6 +81,9 @@ def main():
                 printers[2].print(utils.textWrapped(response))
                 formattedQuestion = utils.textWrapped(questionSet['question']).splitlines()
                 utils.printInvertedToAll(formattedQuestion, printers)
+            else: 
+                print(response)
+                time.sleep(1)
 
             utils.write_to_file(response, data_filename, questionSet['question'])
 
