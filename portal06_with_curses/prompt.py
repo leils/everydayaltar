@@ -1,4 +1,4 @@
-import sys, json, os, random, time
+import sys, json, os, random, time, curses
 from pathlib import Path
 
 #-------- shared utils access hack
@@ -40,16 +40,16 @@ def questionLoopSetup():
         "responses": responseSet
     }
 
-def main(window):
+def main():
     respondingToQuestions = False
 
     while(1): 
         os.system('clear')
-        input(prompts['wakeup']) # Wait for wakeup 
-        os.system('clear')
+        # input(prompts['wakeup']) # Wait for wakeup 
+        # os.system('clear')
 
-        utils.print_slow(prompts['intro_message'])
-        input()
+        # utils.print_slow(prompts['intro_message'])
+        # input()
         respondingToQuestions = True
 
         while(respondingToQuestions): 
@@ -59,13 +59,35 @@ def main(window):
             os.system('clear')
             # utils.printInCycle(formattedResponses, printers[1::-1])
             print(formattedResponses)
-            time.sleep(5)
+            time.sleep(2)
 
-            utils.print_slow(prompts['ask_to_share'])
+            # utils.print_slow(prompts['ask_to_share'])
+            # time.sleep(1)
+            input() # todo take out 
 
-            # curses input
+            response = curses.wrapper(utils.inputBox, questionSet['question'])
+            print(response)
 
-            
+            time.sleep(1)
+
+            utils.print_slow(prompts['outro_message'])
+            utils.print_slow(prompts['add'])
+
+            # printers[2].print(utils.textWrapped(response))
+            # formattedQuestion = utils.textWrapped(questionSet['question']).splitlines()
+            # utils.printInvertedToAll(formattedQuestion, printers)
+
+            utils.write_to_file(response, data_filename, questionSet['question'])
+            utils.print_slow(prompts['sleep'])
+
+            #TODO check for continue?
+
+            respondingToQuestions = False
+        utils.print_slow('bye')
+        time.sleep(1)
+
+
+
 
 
 if __name__ == "__main__":
