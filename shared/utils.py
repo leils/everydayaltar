@@ -150,7 +150,7 @@ def inputBox(stdscr, question):
     stdscr.refresh()
 
     # too many magic numbers
-    editwin = curses.newwin(rows-(qlen + 3), cols-2, (qlen + 1),1)
+    editwin = curses.newwin(rows-(qlen + 4), cols-2, (qlen + 1),1)
     rectangle(stdscr, (qlen), 0, rows-(qlen+1), cols-1) 
     stdscr.refresh()
 
