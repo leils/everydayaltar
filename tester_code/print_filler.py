@@ -27,15 +27,20 @@ responses = json.load(open(data_filename))
 def fetch_matched_responses(q):
     if q in responses:
         chosen_responses = []
-        if len(responses[q]) >= 2:
-            chosen_responses = random.sample(responses[q], 2)
+        if len(responses[q]) >= 3:
+            chosen_responses = random.sample(responses[q], 3)
+        elif len(responses[q]) == 2: 
+            chosen_responses = responses[q]
+            chosen_responses.extend([responses[0]])
+
         else: #there's only 1 response
             chosen_responses = responses[q]
-            chosen_responses.extend([""])
+            chosen_responses.extend([responses[0], responses[0]])
     else:
         utils.print_slow('No other responses found. Check again later, maybe someone will stop by and share.\n')
-        chosen_responses = ["", ""]
+        chosen_responses = ["", "", ""]
 
+    random.shuffle(chosen_responses)
     return chosen_responses
 
 def questionLoopSetup():
