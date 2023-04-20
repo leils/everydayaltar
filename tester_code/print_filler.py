@@ -31,11 +31,11 @@ def fetch_matched_responses(q):
             chosen_responses = random.sample(responses[q], 3)
         elif len(responses[q]) == 2: 
             chosen_responses = responses[q]
-            chosen_responses.extend([responses[0]])
 
+            chosen_responses.extend([responses[q][0]])
         else: #there's only 1 response
             chosen_responses = responses[q]
-            chosen_responses.extend([responses[0], responses[0]])
+            chosen_responses.extend([responses[q][0], responses[q][0]])
     else:
         utils.print_slow('No other responses found. Check again later, maybe someone will stop by and share.\n')
         chosen_responses = ["", "", ""]
