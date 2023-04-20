@@ -1,5 +1,28 @@
-import sys, json, os, random, time, curses
+import sys, json, os, random, time, curses, termios
 from pathlib import Path
+
+class EchoControl(object):
+    def __init__(self, disable=True):
+        self.fd = sys.stdin.fileno()
+        self._echo_on = termios.tcgetattr(self.fd)
+        self._echo_off = termios.tcgetattr(self.fd)
+        self._echo_off[3] = self._echo_off[3] & ~termios.ECHO
+
+    def enable(self):
+        termios.tcsetattr(self.fd, termios.TCSADRAIN, self._echo_on)
+
+    def disable(self):
+        termios.tcsetattr(self.fd, termios.TCSADRAIN, self._echo_off)
+
+    def __enter__(self):
+        self.disable()
+        return self
+
+    def __exit__(self, *args):
+        self.enable()
+
+echoDisabled = EchoControl()
+echoEnabled = EchoControl(True)
 
 #-------- shared utils access hack
 path = str(Path(Path(__file__).parent.absolute()).parent.absolute())
@@ -8,10 +31,10 @@ sys.path.insert(0, path)
 from shared import utils
 
 printersAvailable = False
-try: 
+try:
     printers = utils.setupPrinters()
     printersAvailable = True
-except: 
+except:
     pass
 
 #-------- JSON file loads for questions & responses
@@ -24,18 +47,18 @@ prompts = source_data['prompts']
 questions = source_data['questions']
 responses = json.load(open(data_filename))
 
-def fetch_matched_responses(q): 
-    if q in responses: 
+def fetch_matched_responses(q):
+    if q in responses:
         chosen_responses = []
         if len(responses[q]) >= 2:
             chosen_responses = random.sample(responses[q], 2)
         else: #there's only 1 response
             chosen_responses = responses[q]
             chosen_responses.extend([""])
-    else: 
+    else:
         utils.print_slow('No other responses found. Check again later, maybe someone will stop by and share.\n')
         chosen_responses = ["", ""]
-    
+
     return chosen_responses
 
 def questionLoopSetup():
@@ -49,25 +72,29 @@ def questionLoopSetup():
 def main():
     respondingToQuestions = False
 
-    while(1): 
+    while(1):
         os.system('clear')
-        input(prompts['wakeup']) # Wait for wakeup 
+        input(prompts['wakeup']) # Wait for wakeup
         os.system('clear')
 
         utils.print_slow(prompts['intro_message'])
         input()
         respondingToQuestions = True
 
-        while(respondingToQuestions): 
+        while(respondingToQuestions):
             questionSet = questionLoopSetup()
             formattedResponses = utils.formatArrayForMultiPrint(questionSet['responses'])
 
             os.system('clear')
-            if printersAvailable: 
+            if printersAvailable:
                utils.printInCycle(formattedResponses, printers[1::-1])
-            else: 
-                print(formattedResponses)
-                input() 
+            else:
+                print(questionSet['question'])
+                for response in formattedResponses:
+                    print('  ', '\n    '.join(reversed(response)))
+                    print('')
+                print("Press enter to continue")
+                input()
 
             utils.print_slow(prompts['ask_to_share'])
 
@@ -78,22 +105,23 @@ def main():
             utils.print_slow(prompts['outro_message'])
             utils.print_slow(prompts['add'])
 
-            if printersAvailable: 
+            if printersAvailable:
                 printers[2].print(utils.textWrapped(formattedResponse))
                 formattedQuestion = utils.textWrapped(questionSet['question']).splitlines()
                 utils.printInvertedToAll(formattedQuestion, printers)
-            else: 
+            else:
                 print(formattedResponse)
                 time.sleep(1)
 
             utils.write_to_file(formattedResponse, data_filename, questionSet['question'])
 
-            if not utils.yn_timed(prompts['continue']): 
-                respondingToQuestions = False
+            with echoEnabled:
+                if not utils.yn_timed(prompts['continue']):
+                    respondingToQuestions = False
 
-        os.system('clear')
         utils.print_slow(prompts['sleep'])
         time.sleep(1)
 
 if __name__ == "__main__":
-    main()
+    with echoDisabled:
+        main()
