@@ -91,6 +91,7 @@ def main():
             if not utils.yn_timed(prompts['continue']): 
                 respondingToQuestions = False
 
+        os.system('clear')
         utils.print_slow(prompts['sleep'])
         time.sleep(1)
 
