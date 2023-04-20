@@ -1,8 +1,10 @@
-import time, sys, random, json
+import time, sys, random, json, select
 import textwrap
+from pytimedinput import timedKey
 
 defaultMaxColumn = 32
 linesToFeed = 3
+waitTimeout = 5
 
 #------------------------ CONSOLE UTILS ------------------------------
 
@@ -30,6 +32,13 @@ def yes_or_no(question):
         return True
     else: 
         return False
+
+def yn_timed(question, timeout = waitTimeout):
+    userText, timedOut = timedKey(question + " (y/n): ", allowCharacters="yYnN")
+    if ((not timedOut) and (userText in "yY")):
+        return True
+    return False
+
 
 #------------------------ FILE UTILS ------------------------------
 

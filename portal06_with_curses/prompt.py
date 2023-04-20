@@ -88,7 +88,7 @@ def main():
 
             utils.write_to_file(formattedResponse, data_filename, questionSet['question'])
 
-            if not utils.yes_or_no(prompts['continue']): 
+            if not utils.yn_timed(prompts['continue']): 
                 respondingToQuestions = False
 
         utils.print_slow(prompts['sleep'])
