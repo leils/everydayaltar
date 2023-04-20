@@ -98,6 +98,7 @@ def main():
 
             utils.print_slow(prompts['ask_to_share'])
 
+            termios.tcflush(sys.stdin, termios.TCIOFLUSH) # the suppressed echoes need to be flushed
             response = curses.wrapper(utils.inputBox, questionSet['question'])
             formattedResponse = "".join(x.strip() for x in response.split("\n"))
             os.system('clear')

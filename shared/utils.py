@@ -4,7 +4,7 @@ from pytimedinput import timedKey
 
 defaultMaxColumn = 32
 linesToFeed = 3
-waitTimeout = 5
+waitTimeout = 15
 
 #------------------------ CONSOLE UTILS ------------------------------
 
