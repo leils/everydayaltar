@@ -1,6 +1,15 @@
 import sys, json, os, random, time, curses, termios
+import argparse
 from pathlib import Path
 
+#-------- modes and arg parsing 
+parser = argparse.ArgumentParser("simple_example")
+parser.add_argument("--waitForPrinter", help="`true` to enter wait loop if printers not found", default="false")
+
+args = parser.parse_args()
+waitForPrinter = (args.waitForPrinter.lower() == 'true') 
+
+#-------- Required for curses
 class EchoControl(object):
     def __init__(self, disable=True):
         self.fd = sys.stdin.fileno()
@@ -31,11 +40,21 @@ sys.path.insert(0, path)
 from shared import utils
 
 printersAvailable = False
-try:
-    printers = utils.setupPrinters()
-    printersAvailable = True
-except:
-    pass
+
+if waitForPrinter:
+    while (not printersAvailable): 
+        try:
+            printers = utils.setupPrinters()
+            printersAvailable = True
+        except: 
+            print('Printer connection failed ... ')
+            time.sleep(3)
+else: 
+    try:
+        printers = utils.setupPrinters()
+        printersAvailable = True
+    except:
+        pass
 
 #-------- JSON file loads for questions & responses
 sharedPath = path + '/shared'
