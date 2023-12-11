@@ -2,6 +2,8 @@ import sys, json, os, random, time, curses, termios
 import argparse
 from pathlib import Path
 
+maxPrintConnectionTries = 10
+
 #-------- modes and arg parsing 
 parser = argparse.ArgumentParser("simple_example")
 parser.add_argument("--waitForPrinter", help="`true` to enter wait loop if printers not found", default="false")
@@ -42,12 +44,17 @@ from shared import utils
 printersAvailable = False
 
 if waitForPrinter:
+    tries = 0
     while (not printersAvailable): 
         try:
             printers = utils.setupPrinters()
             printersAvailable = True
         except: 
             print('Printer connection failed ... ')
+            tries += 1
+            if (tries > maxPrintConnectionTries):
+                print("Reach max tries, shutting down.")
+                exit()
             time.sleep(3)
 else: 
     try:
