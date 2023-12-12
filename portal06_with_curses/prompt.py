@@ -50,7 +50,7 @@ if waitForPrinter:
             printers = utils.setupPrinters()
             printersAvailable = True
         except: 
-            print('Printer connection failed ... ')
+            print('Printer connection failed. Press ctrl+c to exit program.')
             tries += 1
             if (tries > maxPrintConnectionTries):
                 print("Reach max tries, shutting down.")
