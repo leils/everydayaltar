@@ -6,7 +6,7 @@ maxPrintConnectionTries = 10
 
 #-------- modes and arg parsing 
 parser = argparse.ArgumentParser("simple_example")
-parser.add_argument("--waitForPrinter", help="`true` to enter wait loop if printers not found", default="false")
+parser.add_argument("--waitForPrinter", help="`True` to enter wait loop if printers not found", default="false")
 
 args = parser.parse_args()
 waitForPrinter = (args.waitForPrinter.lower() == 'true') 
